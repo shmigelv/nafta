@@ -735,6 +735,14 @@ function setUp() {
 	loadQuestion();
 }
 
+function getCurrent() {
+   return i;
+}
+
+function getAll() {
+   return questionsIndex.length;
+}
+
 function generateRandomQuestions() {
 	for (var i = 0; i < questionsIndex.length; i++) {
       var random = getRandom(0, 179);
@@ -750,6 +758,11 @@ function loadQuestion() {
 	var currentQuestion = questionsIndex[i];
 	setNewQuestion(currentQuestion);
 	setNewAnswers(currentQuestion);
+   setProgress();
+}
+
+function setProgress() {
+   document.getElementById('progress').innerText = getCurrent()+'/'+getAll();
 }
 
 function loadNextQuestion() {
@@ -766,11 +779,15 @@ function handleNext() {
 	if (!hasNext()) {
 		loadNextQuestion();
 	} else {
-		document.getElementById('stat').innerText= numberOfRight+'/'+questionsIndex.length;
-		var next = document.getElementById('next');
-		next.onclick = refreshPage;
-		next.innerText = 'Refresh';
+		handleTestEnd();
 	}
+}
+
+function handleTestEnd() {
+   document.getElementById('progress').innerText= 'You got '+numberOfRight+'/'+questionsIndex.length;
+   var next = document.getElementById('next');
+   next.onclick = refreshPage;
+   next.innerText = 'Refresh';
 }
 
 function checkIfTrue(currentQuestion, value) {
