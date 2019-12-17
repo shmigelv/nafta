@@ -1,18 +1,19 @@
-
-	<h1>23</h1>
-	<?php
-$student = "Шмігель Володимир";
-echo "Виконав ".$student;
-$variant = 23;
-if ($variant >= 15){
-	echo "В першій підгрупі";
-} else {
-	echo "В другій підгрупі";
-}
-
-for ($i = 1; $i <= $variant; $i++) {
-    echo $i * $i."\n";
-}
-?>
-
-
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css"/>
+	<meta charset="utf-8">
+	<title>Testing</title>
+	<script type="text/javascript" src="testing.js"></script>
+</head>
+<body onload="setUp()">
+	<div id="testing">
+		<h2 id="question"></h2>
+		<ul id="answers" style="list-style: none;">
+		</ul>
+		<button id='next' onclick="handleNext()">Next</button>
+	</div>
+	<div id="stat">
+	</div>
+</body>
+</html>
