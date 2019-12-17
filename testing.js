@@ -754,7 +754,7 @@ function loadNextQuestion() {
 
 function handleNext() {
 	var selected = getSelected();
-	if(!isOutOfQuestions() || checkIfTrue(questionsIndex[i], selected)) {
+	if(!isOutOfQuestions() && checkIfTrue(questionsIndex[i], selected)) {
 		numberOfRight++;
 	}
 
