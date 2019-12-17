@@ -726,7 +726,7 @@ var questions = [
 ];
 
 var i = 0;
-var questionsIndex = new Array(24); 
+var questionsIndex = new Array(25); 
 
 var numberOfRight = 0;
 
