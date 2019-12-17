@@ -754,7 +754,7 @@ function loadNextQuestion() {
 
 function handleNext() {
 	var selected = getSelected();
-	if(checkIfTrue(questionsIndex[i], selected)) {
+	if(checkIfTrue(questionsIndex[i], selected) || !isOutOfQuestions()) {
 		numberOfRight++;
 	}
 
@@ -777,7 +777,7 @@ function getSelected() {
 }
 
 function isOutOfQuestions() {
-	return i >= questionsIndex.length;
+	return i >= questionsIndex.length - 1;
 }
 
 function refreshPage(){
