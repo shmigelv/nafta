@@ -777,7 +777,7 @@ function getSelected() {
 }
 
 function isOutOfQuestions() {
-	return i >= 1;
+	return i >= questionsIndex.length;
 }
 
 function refreshPage(){
