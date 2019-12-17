@@ -737,7 +737,12 @@ function setUp() {
 
 function generateRandomQuestions() {
 	for (var i = 0; i < questionsIndex.length; i++) {
-		questionsIndex[i] = getRandom(1, 179);
+      var random = getRandom(0, 179);
+		if (questionsIndex.includes(random)) {
+         i--;
+      } else {
+         questionsIndex[i] = random;         
+      }
 	}
 }
 
@@ -754,11 +759,11 @@ function loadNextQuestion() {
 
 function handleNext() {
 	var selected = getSelected();
-	if(!isOutOfQuestions() && checkIfTrue(questionsIndex[i], selected)) {
+	if(checkIfTrue(questionsIndex[i], selected)) {
 		numberOfRight++;
 	}
 
-	if (!isOutOfQuestions()) {
+	if (!hasNext()) {
 		loadNextQuestion();
 	} else {
 		document.getElementById('stat').innerText= numberOfRight+'/'+questionsIndex.length;
@@ -776,8 +781,8 @@ function getSelected() {
 	return document.querySelector('.answer:checked').value;
 }
 
-function isOutOfQuestions() {
-	return i >= questionsIndex.length;
+function hasNext() {
+	return i + 1 >= questionsIndex.length;
 }
 
 function refreshPage(){
